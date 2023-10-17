@@ -1,0 +1,1 @@
+# sz_cgo_encrypt_plugin
