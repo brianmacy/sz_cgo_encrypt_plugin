@@ -83,9 +83,9 @@ func G2Encryption_InitPlugin(nothing *C.int, error_msg *C.char, maxErrorSize C.s
 
   if errCode != 0 {
     errLen := C.size_t(len(errStr))
- 	  s := C.CString(errStr)
-  	defer C.free(unsafe.Pointer(s))
-  	C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
+    s := C.CString(errStr)
+    defer C.free(unsafe.Pointer(s))
+    C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
     *errorSize = errLen
     return C.int(errCode)
   }
@@ -100,9 +100,9 @@ func G2Encryption_ClosePlugin(error_msg *C.char, maxErrorSize C.size_t, errorSiz
 
   if errCode != 0 {
     errLen := C.size_t(len(errStr))
- 	  s := C.CString(errStr)
-  	defer C.free(unsafe.Pointer(s))
-  	C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
+    s := C.CString(errStr)
+    defer C.free(unsafe.Pointer(s))
+    C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
     *errorSize = errLen
     return C.int(errCode)
   }
@@ -117,17 +117,17 @@ func G2Encryption_GetSignature(signature *C.char, maxSignatureSize C.size_t, sig
 
   if errCode != 0 {
     errLen := C.size_t(len(errStr))
- 	  s := C.CString(errStr)
-  	defer C.free(unsafe.Pointer(s))
-  	C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
+    s := C.CString(errStr)
+    defer C.free(unsafe.Pointer(s))
+    C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
     *errorSize = errLen
     return C.int(errCode)
   }
 
   encLen := C.size_t(len(encStr))
- 	s := C.CString(encStr)
-	defer C.free(unsafe.Pointer(s))
-	C.memcpy(unsafe.Pointer(signature), unsafe.Pointer(s), encLen)
+  s := C.CString(encStr)
+  defer C.free(unsafe.Pointer(s))
+  C.memcpy(unsafe.Pointer(signature), unsafe.Pointer(s), encLen)
   *signatureSize = encLen
 
   return 0
@@ -141,9 +141,9 @@ func G2Encryption_ValidateSignatureCompatibility(signatureToValidate *C.char, si
 
   if errCode != 0 {
     errLen := C.size_t(len(errStr))
- 	  s := C.CString(errStr)
-  	defer C.free(unsafe.Pointer(s))
-  	C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
+    s := C.CString(errStr)
+    defer C.free(unsafe.Pointer(s))
+    C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
     *errorSize = errLen
     return C.int(errCode)
   }
@@ -153,9 +153,9 @@ func G2Encryption_ValidateSignatureCompatibility(signatureToValidate *C.char, si
     return -1;
   }
 
- 	s := C.CString(encStr)
-	defer C.free(unsafe.Pointer(s))
-	return C.memcmp(unsafe.Pointer(signatureToValidate), unsafe.Pointer(s), sigLen)
+  s := C.CString(encStr)
+  defer C.free(unsafe.Pointer(s))
+  return C.memcmp(unsafe.Pointer(signatureToValidate), unsafe.Pointer(s), sigLen)
 }
 
 
@@ -166,17 +166,17 @@ func G2Encryption_EncryptDataField(input *C.char, inputSize C.size_t, result *C.
 
   if errCode != 0 {
     errLen := C.size_t(len(errStr))
- 	  s := C.CString(errStr)
-  	defer C.free(unsafe.Pointer(s))
-  	C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
+    s := C.CString(errStr)
+    defer C.free(unsafe.Pointer(s))
+    C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
     *errorSize = errLen
     return C.int(errCode)
   }
 
   encLen := C.size_t(len(encStr))
- 	s := C.CString(encStr)
-	defer C.free(unsafe.Pointer(s))
-	C.memcpy(unsafe.Pointer(result), unsafe.Pointer(s), encLen)
+  s := C.CString(encStr)
+  defer C.free(unsafe.Pointer(s))
+  C.memcpy(unsafe.Pointer(result), unsafe.Pointer(s), encLen)
   *resultSize = encLen
 
   return 0
@@ -189,17 +189,17 @@ func G2Encryption_DecryptDataField(input *C.char, inputSize C.size_t, result *C.
 
   if errCode != 0 {
     errLen := C.size_t(len(errStr))
- 	  s := C.CString(errStr)
-  	defer C.free(unsafe.Pointer(s))
-  	C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
+    s := C.CString(errStr)
+    defer C.free(unsafe.Pointer(s))
+    C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
     *errorSize = errLen
     return C.int(errCode)
   }
 
   decLen := C.size_t(len(decStr))
- 	s := C.CString(decStr)
-	defer C.free(unsafe.Pointer(s))
-	C.memcpy(unsafe.Pointer(result), unsafe.Pointer(s), decLen)
+  s := C.CString(decStr)
+  defer C.free(unsafe.Pointer(s))
+  C.memcpy(unsafe.Pointer(result), unsafe.Pointer(s), decLen)
   *resultSize = decLen
 
   return 0
@@ -213,17 +213,17 @@ func G2Encryption_EncryptDataFieldDeterministic(input *C.char, inputSize C.size_
 
   if errCode != 0 {
     errLen := C.size_t(len(errStr))
- 	  s := C.CString(errStr)
-  	defer C.free(unsafe.Pointer(s))
-  	C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
+    s := C.CString(errStr)
+    defer C.free(unsafe.Pointer(s))
+    C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
     *errorSize = errLen
     return C.int(errCode)
   }
 
   encLen := C.size_t(len(encStr))
- 	s := C.CString(encStr)
-	defer C.free(unsafe.Pointer(s))
-	C.memcpy(unsafe.Pointer(result), unsafe.Pointer(s), encLen)
+  s := C.CString(encStr)
+  defer C.free(unsafe.Pointer(s))
+  C.memcpy(unsafe.Pointer(result), unsafe.Pointer(s), encLen)
   *resultSize = encLen
 
   return 0
@@ -236,17 +236,17 @@ func G2Encryption_DecryptDataFieldDeterministic(input *C.char, inputSize C.size_
 
   if errCode != 0 {
     errLen := C.size_t(len(errStr))
- 	  s := C.CString(errStr)
-  	defer C.free(unsafe.Pointer(s))
-  	C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
+    s := C.CString(errStr)
+    defer C.free(unsafe.Pointer(s))
+    C.memcpy(unsafe.Pointer(error_msg), unsafe.Pointer(s), errLen)
     *errorSize = errLen
     return C.int(errCode)
   }
 
   decLen := C.size_t(len(decStr))
- 	s := C.CString(decStr)
-	defer C.free(unsafe.Pointer(s))
-	C.memcpy(unsafe.Pointer(result), unsafe.Pointer(s), decLen)
+  s := C.CString(decStr)
+  defer C.free(unsafe.Pointer(s))
+  C.memcpy(unsafe.Pointer(result), unsafe.Pointer(s), decLen)
   *resultSize = decLen
 
   return 0
