@@ -7,4 +7,8 @@ An attempt at building a Senzing encryption plugin with CGo.  It seems to work a
 I haven't done a real make system.
 
 Then add it to your LD_LIBRARY_PATH and add the appropriate configuration to your Senzing JSON config on your init call.
-{"DATA_ENCRYPTION":{"ENCRYPTION_PLUGIN_NAME"="sz_cgo_encrypt_plugin"}}
+{"DATA_ENCRYPTION":{"ENCRYPTION_PLUGIN_NAME":"sz_cgo_encrypt_plugin"}}
+
+If your encryption returns something that is UTF-8/ASCII encoded then you can make that:
+{"DATA_ENCRYPTION":{"ENCRYPTION_PLUGIN_NAME":"sz_cgo_encrypt_plugin","BASE64_ENCODING":"N"}}
+
