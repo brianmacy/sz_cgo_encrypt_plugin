@@ -121,7 +121,7 @@ func G2Encryption_EncryptDataField(input *C.char, inputSize C.size_t, result *C.
   if err != nil {
     errCode := errorToCode(err)
     errStr := err.Error()
-    fmt.Fprintf(os.Stderr, "Encryption Error: input [%s] error [%s]\n", input, errStr)
+    //fmt.Fprintf(os.Stderr, "Encryption Error: input [%s] error [%s]\n", input, errStr)
     errLen := C.size_t(len(errStr))
     s := C.CString(errStr)
     defer C.free(unsafe.Pointer(s))
@@ -147,7 +147,7 @@ func G2Encryption_DecryptDataField(input *C.char, inputSize C.size_t, result *C.
   if err != nil {
     errCode := errorToCode(err)
     errStr := err.Error()
-    fmt.Fprintf(os.Stderr, "Decryption Error: input [%s] error [%s]\n", input, errStr)
+    //fmt.Fprintf(os.Stderr, "Decryption Error: input [%s] error [%s]\n", input, errStr)
     errLen := C.size_t(len(errStr))
     s := C.CString(errStr)
     defer C.free(unsafe.Pointer(s))
